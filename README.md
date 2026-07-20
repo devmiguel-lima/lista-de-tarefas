@@ -59,7 +59,7 @@ Se estiver usando o VS Code, você também pode executar o projeto com a extens�
 
 ## O que aprendi com este projeto
 
-- Estruturar uma página com HTML.
+- Estruturar uma pagina com HTML.
 - Estilizar uma aplicação com CSS.
 - Manipular elementos da página com JavaScript.
 - Capturar eventos de formulário.
