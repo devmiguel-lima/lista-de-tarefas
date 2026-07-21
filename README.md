@@ -7,6 +7,7 @@ Aplicação web desenvolvida para gerenciamento de tarefas. O projeto foi criado
 O sistema permite:
 
 - Adicionar tarefas.
+- Marcar tarefas como concluídas ao clicar sobre elas.
 - Editar tarefas existentes.
 - Excluir tarefas.
 - Salvar as tarefas no navegador com `localStorage`.
@@ -22,7 +23,7 @@ O sistema permite:
 ## Estrutura do projeto
 
 ```text
-Lista-de-tarefas-projeto/
+lista-de-tarefas/
 +-- css/
 |   +-- style.css
 +-- js/
@@ -54,12 +55,13 @@ Se estiver usando o VS Code, você também pode executar o projeto com a extens�
 
 1. Digite uma tarefa no campo de texto.
 2. Clique em `Adicionar`.
-3. Use o botão de editar para alterar uma tarefa.
-4. Use o botão de excluir para remover uma tarefa.
+3. Clique sobre uma tarefa para marcá-la como concluída. Clique novamente para remover a marcação.
+4. Use o botão de editar para alterar uma tarefa.
+5. Use o botão de excluir para remover uma tarefa.
 
 ## O que aprendi com este projeto
 
-- Estruturar uma pagina com HTML.
+- Estruturar uma página com HTML.
 - Estilizar uma aplicação com CSS.
 - Manipular elementos da página com JavaScript.
 - Capturar eventos de formulário.
@@ -73,6 +75,6 @@ Feito por [Miguel Lima](https://github.com/devmiguel-lima).
 
 ## Licença
 
-Este projeto foi desenvolvido para fins de estudo.
+Este projeto não possui uma licença de software específica e foi desenvolvido para fins de estudo.
 
 Projeto desenvolvido em 2026.

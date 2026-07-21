@@ -5,14 +5,22 @@ document.addEventListener("DOMContentLoaded", () => {
 
   let tasks = JSON.parse(localStorage.getItem("tasks")) || [];
 
+  tasks = tasks.map((task) =>
+    typeof task === "string" ? { text: task, completed: false } : task,
+  );
+
   function renderTasks() {
     taskList.innerHTML = "";
 
     tasks.forEach((task, index) => {
       const li = document.createElement("li");
 
+      if (task.completed) {
+        li.classList.add("completed");
+      }
+
       li.innerHTML = `
-        <span>${task}</span>
+        <span class="task-text"></span>
 
         <div>
           <button class="edit-btn" onclick="editTask(${index})">
@@ -24,6 +32,17 @@ document.addEventListener("DOMContentLoaded", () => {
           </button>
         </div>
       `;
+
+      li.querySelector(".task-text").textContent = task.text;
+
+      li.addEventListener("click", (event) => {
+        if (event.target.closest("button")) {
+          return;
+        }
+
+        task.completed = !task.completed;
+        renderTasks();
+      });
 
       taskList.appendChild(li);
     });
@@ -42,7 +61,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const taskText = taskInput.value.trim();
 
     if (taskText) {
-      tasks.push(taskText);
+      tasks.push({ text: taskText, completed: false });
       taskInput.value = "";
       renderTasks();
     }
@@ -50,10 +69,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Responsável por editar as tarefas
   window.editTask = (index) => {
-    const newTask = prompt("Editar tarefa:", tasks[index]);
+    const newTask = prompt("Editar tarefa:", tasks[index].text);
 
     if (newTask !== null && newTask.trim()) {
-      tasks[index] = newTask.trim();
+      tasks[index].text = newTask.trim();
       renderTasks();
     }
   };
